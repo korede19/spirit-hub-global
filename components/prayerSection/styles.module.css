@@ -1,0 +1,238 @@
+.section {
+  padding: var(--section-padding);
+  background: var(--color-bg);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Background decoration */
+.bgDecor {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+      ellipse 60% 60% at 10% 50%,
+      rgba(37, 150, 190, 0.05) 0%,
+      transparent 70%
+    ),
+    radial-gradient(
+      ellipse 40% 40% at 90% 20%,
+      rgba(37, 150, 190, 0.04) 0%,
+      transparent 70%
+    );
+  pointer-events: none;
+}
+
+.container {
+  position: relative;
+  z-index: 1;
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 var(--container-pad);
+}
+
+.header {
+  margin-bottom: 56px;
+}
+
+.header .sectionTitle em {
+  font-family: var(--font-display);
+  font-style: italic;
+  color: var(--color-brand);
+}
+
+/* Grid */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+/* Card */
+.card {
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  padding: 40px 36px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  transition: all var(--transition);
+  position: relative;
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    var(--color-border),
+    transparent
+  );
+  transition: background var(--transition);
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(37, 150, 190, 0.25);
+  box-shadow: var(--shadow-hover);
+}
+
+.card:hover::before {
+  background: linear-gradient(
+    to right,
+    var(--color-brand),
+    var(--color-brand-light)
+  );
+}
+
+/* Accent card — highlighted middle or first */
+.cardAccent {
+  background: var(--color-brand);
+  border-color: var(--color-brand-dark);
+  color: #fff;
+}
+
+.cardAccent::before {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.cardAccent:hover {
+  background: var(--color-brand-dark);
+  border-color: var(--color-brand);
+  box-shadow: 0 20px 60px rgba(37, 150, 190, 0.4);
+}
+
+.cardAccent:hover::before {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* Icon */
+.iconWrap {
+  width: 64px;
+  height: 64px;
+  border-radius: var(--radius-md);
+  background: var(--color-brand-muted);
+  border: 1px solid rgba(37, 150, 190, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-brand);
+  margin-bottom: 6px;
+  transition: all var(--transition);
+}
+
+.card:hover .iconWrap {
+  transform: scale(1.05);
+}
+
+.cardAccent .iconWrap {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.25);
+  color: #fff;
+}
+
+/* Eyebrow */
+.eyebrow {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-brand);
+}
+
+.cardAccent .eyebrow {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+/* Heading */
+.cardHeading {
+  font-family: var(--font-display);
+  font-size: clamp(1.25rem, 2vw, 1.6rem);
+  font-weight: 600;
+  color: var(--color-text);
+  line-height: 1.25;
+}
+
+.cardAccent .cardHeading {
+  color: #fff;
+}
+
+/* Body */
+.cardBody {
+  font-size: 0.88rem;
+  color: var(--color-text-muted);
+  line-height: 1.8;
+  flex: 1;
+}
+
+.cardAccent .cardBody {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* CTA */
+.cardCta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.84rem;
+  font-weight: 700;
+  color: var(--color-brand);
+  text-decoration: none;
+  transition: gap var(--transition), color var(--transition);
+  margin-top: 6px;
+  letter-spacing: 0.02em;
+  padding: 12px 20px;
+  border-radius: var(--radius-md);
+  background: var(--color-brand-muted);
+  border: 1px solid rgba(37, 150, 190, 0.2);
+  align-self: flex-start;
+}
+
+.cardCta:hover {
+  gap: 14px;
+  background: var(--color-brand);
+  color: #fff;
+  border-color: var(--color-brand);
+}
+
+.cardCta svg {
+  flex-shrink: 0;
+  transition: transform var(--transition);
+}
+
+.cardCta:hover svg {
+  transform: translateX(3px);
+}
+
+.cardAccent .cardCta {
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.cardAccent .cardCta:hover {
+  background: rgba(255, 255, 255, 0.25);
+  border-color: rgba(255, 255, 255, 0.5);
+  gap: 14px;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: 1fr;
+    max-width: 560px;
+  }
+}
+
+@media (max-width: 600px) {
+  .card {
+    padding: 28px 24px;
+  }
+}
