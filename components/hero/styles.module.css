@@ -436,7 +436,7 @@
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 390px) {
   .headlineMid {
     font-size: clamp(2.8rem, 9vw, 4.5rem);
   }
