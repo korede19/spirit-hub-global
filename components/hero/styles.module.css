@@ -2,7 +2,7 @@
   position: relative;
   width: 100%;
   height: 100dvh;
-  min-height: 600px;
+  min-height: 900px;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -439,5 +439,9 @@
 @media (max-width: 390px) {
   .headlineMid {
     font-size: clamp(2.8rem, 9vw, 4.5rem);
+  }
+
+  .inner {
+    padding-bottom: 100px 0;
   }
 }
