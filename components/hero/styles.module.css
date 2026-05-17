@@ -435,3 +435,9 @@
     height: 28px;
   }
 }
+
+@media (max-width: 480px) {
+  .headlineMid {
+    font-size: clamp(2.8rem, 9vw, 4.5rem);
+  }
+}
