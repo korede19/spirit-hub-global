@@ -97,7 +97,7 @@ export default function Hero() {
 
           {/* CTA Buttons */}
           <div className={styles.ctaRow}>
-            <Link href="#meetings" className={styles.ctaPrimary}>
+            <Link href="/the-vision" className={styles.ctaPrimary}>
               The Vision
               <svg
                 width="16"

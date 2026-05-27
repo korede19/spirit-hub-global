@@ -64,9 +64,7 @@ export default function About() {
           </p>
 
           <a
-            href="https://spirithubglobal.org"
-            target="_blank"
-            rel="noopener noreferrer"
+            href="/the-vision"
             className={styles.learnMore}
           >
             Learn More About Us

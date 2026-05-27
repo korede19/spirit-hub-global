@@ -10,7 +10,7 @@ const navLinks = [
   { label: "The Vision", href: "/the-vision" },
   { label: "Ladies Arise", href: "/ladies-arise" },
   { label: "Messages", href: "/messages" },
-  { label: "Donations", href: "/donations" },
+  { label: "Partner With Us", href: "/donations" },
   { label: "Contact", href: "/contact" },
 ];
 

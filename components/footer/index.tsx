@@ -6,16 +6,14 @@ const currentYear = new Date().getFullYear();
 
 const footerLinks = {
   Ministry: [
-    { label: "About Us", href: "#about" },
-    { label: "Our Beliefs", href: "#" },
-    { label: "Leadership", href: "#" },
-    { label: "Partner With Us", href: "#" },
+    { label: "The Vision", href: "/the-vision" },
+    { label: "Ladies Arise", href: "/ladies-arise" },
+    { label: "Partner With Us", href: "/Donations" },
   ],
   Resources: [
     { label: "Books & Downloads", href: "#books" },
     { label: "Past Meetings", href: "#previous-meetings" },
     { label: "Devotionals", href: "#" },
-    { label: "Media Library", href: "#" },
   ],
   Connect: [
     {
