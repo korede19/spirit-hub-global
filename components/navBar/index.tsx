@@ -7,11 +7,11 @@ import styles from "./styles.module.css";
 
 const navLinks = [
   { label: "Home", href: "/" },
-  { label: "About", href: "#about" },
-  { label: "Meetings", href: "#meetings" },
-  { label: "Books", href: "#books" },
-  { label: "Prayer", href: "#prayer" },
-  { label: "Contact", href: "#footer" },
+  { label: "The Vision", href: "/the-vision" },
+  { label: "Ladies Arise", href: "/ladies-arise" },
+  { label: "Messages", href: "/messages" },
+  { label: "Donations", href: "/donations" },
+  { label: "Contact", href: "/contact" },
 ];
 
 export default function Navbar() {
@@ -88,9 +88,8 @@ export default function Navbar() {
 
       {/* Mobile Drawer */}
       <div
-        className={`${styles.mobileOverlay} ${
-          menuOpen ? styles.overlayVisible : ""
-        }`}
+        className={`${styles.mobileOverlay} ${menuOpen ? styles.overlayVisible : ""
+          }`}
         onClick={() => setMenuOpen(false)}
         aria-hidden="true"
       />

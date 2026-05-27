@@ -1,0 +1,141 @@
+.hero {
+    position: relative;
+    height: 70vh;
+    min-height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    color: #fff;
+    text-align: center;
+}
+
+.bg {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    transform: scale(1.05);
+    animation: slowZoom 12s ease forwards;
+}
+
+@keyframes slowZoom {
+    to {
+        transform: scale(1);
+    }
+}
+
+.overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom,
+            rgba(0, 0, 0, 0.4) 0%,
+            rgba(0, 0, 0, 0.75) 60%,
+            rgba(0, 0, 0, 0.92) 100%);
+    z-index: 1;
+}
+
+.content {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    padding: 0 var(--container-pad);
+    animation: fadeUp 1s ease both;
+    animation-delay: 0.2s;
+}
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(24px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.eyebrow {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--color-brand-light);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.eyebrow::before,
+.eyebrow::after {
+    content: "";
+    display: block;
+    width: 32px;
+    height: 1px;
+    background: var(--color-brand);
+}
+
+.title {
+    font-family: var(--font-display);
+    font-size: clamp(3rem, 8vw, 7rem);
+    font-weight: 700;
+    line-height: 1;
+    color: #fff;
+    letter-spacing: -0.02em;
+}
+
+.subtitle {
+    font-family: var(--font-display);
+    font-size: clamp(1rem, 2vw, 1.4rem);
+    font-style: italic;
+    color: rgba(255, 255, 255, 0.65);
+    font-weight: 400;
+}
+
+.scrollHint {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 32px;
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.4);
+}
+
+.scrollLine {
+    width: 36px;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.25);
+    position: relative;
+    overflow: hidden;
+}
+
+.scrollLine::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: var(--color-brand);
+    animation: sweep 2s ease infinite;
+}
+
+@keyframes sweep {
+    0% {
+        transform: translateX(-100%);
+    }
+
+    100% {
+        transform: translateX(200%);
+    }
+}
+
+@media (max-width: 600px) {
+    .hero {
+        height: 60vh;
+    }
+}

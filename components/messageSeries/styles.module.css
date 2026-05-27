@@ -1,0 +1,352 @@
+.section {
+    padding: var(--section-padding);
+    background: var(--color-bg);
+}
+
+.container {
+    max-width: var(--container-max);
+    margin: 0 auto;
+    padding: 0 var(--container-pad);
+    display: flex;
+    flex-direction: column;
+    gap: 56px;
+}
+
+.header {
+    max-width: 600px;
+}
+
+/* Series list */
+.seriesList {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.watchButton {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.92rem;
+    font-weight: 500;
+    color: var(--color-brand);
+    background-color: var(--color-brand-muted);
+    border-radius: 4px;
+    padding: 4px 12px;
+    width: fit-content;
+    text-decoration: none;
+    margin-top: 10px;
+    transition: all var(--transition);
+    border: 1px solid var(--color-brand-muted);
+}
+
+.watchButton:hover {
+    background-color: var(--color-brand);
+    color: var(--color-white);
+}
+
+/* Card */
+.card {
+    background: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+    box-shadow: var(--shadow-card);
+    transition: box-shadow var(--transition);
+    scroll-margin-top: 100px;
+}
+
+.card:hover {
+    box-shadow: var(--shadow-hover);
+}
+
+/* Card header */
+.cardHeader {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 24px;
+    padding: 36px 40px;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.cardHeaderLeft {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+/* Tag */
+.tag {
+    display: inline-flex;
+    align-items: center;
+    padding: 4px 12px;
+    border-radius: 100px;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    border: 1px solid;
+    align-self: flex-start;
+}
+
+.cardTitle {
+    font-family: var(--font-display);
+    font-size: clamp(1.5rem, 3vw, 2.2rem);
+    font-weight: 600;
+    color: var(--color-text);
+    line-height: 1.2;
+}
+
+.cardSubtitle {
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+    font-style: italic;
+}
+
+.dateRange {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--color-text-subtle);
+}
+
+.dateRange svg {
+    color: var(--color-brand);
+    flex-shrink: 0;
+}
+
+/* Count badge */
+.cardHeaderRight {
+    flex-shrink: 0;
+}
+
+.countBadge {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 16px 24px;
+    background: var(--color-brand-muted);
+    border: 1px solid rgba(37, 150, 190, 0.2);
+    border-radius: var(--radius-lg);
+    min-width: 80px;
+}
+
+.countNum {
+    font-family: var(--font-display);
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--color-brand);
+    line-height: 1;
+}
+
+.countLabel {
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-text-subtle);
+    margin-top: 4px;
+}
+
+/* Seasons */
+.seasons {
+    display: flex;
+    flex-direction: column;
+}
+
+.season {
+    border-bottom: 1px solid var(--color-border);
+}
+
+.season:last-child {
+    border-bottom: none;
+}
+
+.seasonToggle {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 20px 40px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    text-align: left;
+    transition: background var(--transition);
+}
+
+.seasonToggle:hover {
+    background: var(--color-surface);
+}
+
+.seasonOpen {
+    background: var(--color-brand-muted);
+}
+
+.seasonLabel {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--color-text);
+    flex: 1;
+}
+
+.seasonOpen .seasonLabel {
+    color: var(--color-brand);
+}
+
+.seasonCount {
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: var(--color-text-subtle);
+}
+
+.chevron {
+    color: var(--color-text-subtle);
+    transition: transform var(--transition);
+    flex-shrink: 0;
+}
+
+.seasonOpen .chevron {
+    transform: rotate(180deg);
+    color: var(--color-brand);
+}
+
+/* Message list */
+.messageList {
+    display: flex;
+    flex-direction: column;
+}
+
+.messageRow {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 14px 40px;
+    border-bottom: 1px solid var(--color-border);
+    transition: all var(--transition);
+}
+
+.messageRow:last-child {
+    border-bottom: none;
+}
+
+.messageRow:hover {
+    background: var(--color-surface);
+    padding-left: 48px;
+}
+
+.msgIndex {
+    font-family: var(--font-display);
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: var(--color-brand);
+    opacity: 0.5;
+    width: 26px;
+    flex-shrink: 0;
+}
+
+.msgTitle {
+    font-size: 0.92rem;
+    font-weight: 500;
+    color: var(--color-text);
+    flex: 1;
+    line-height: 1.5;
+    transition: color var(--transition);
+}
+
+.messageRow:hover .msgTitle {
+    color: var(--color-brand);
+}
+
+.msgDay {
+    font-size: 0.72rem;
+    font-weight: 500;
+    color: var(--color-text-subtle);
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+/* Show more */
+.showMoreBtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+    padding: 16px 40px;
+    background: var(--color-surface);
+    border: none;
+    border-top: 1px solid var(--color-border);
+    font-family: var(--font-body);
+    font-size: 0.84rem;
+    font-weight: 600;
+    color: var(--color-brand);
+    cursor: pointer;
+    transition: all var(--transition);
+    letter-spacing: 0.02em;
+}
+
+.showMoreBtn:hover {
+    background: var(--color-brand-muted);
+}
+
+.exploreMore {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    max-width: 400px;
+    margin-inline: auto;
+    margin-top: 56px;
+    padding: 16px 40px;
+    background: var(--color-brand-muted);
+    border-top: 1px solid var(--color-border);
+    font-family: var(--font-body);
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--color-brand);
+    cursor: pointer;
+    transition: all var(--transition);
+    letter-spacing: 0.02em;
+    text-decoration: none;
+    border-radius: 10px;
+}
+
+.exploreMore:hover {
+    background: var(--color-brand);
+    color: var(--color-white);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+    .cardHeader {
+        padding: 24px 24px;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .seasonToggle,
+    .messageRow,
+    .showMoreBtn {
+        padding-left: 24px;
+        padding-right: 24px;
+    }
+
+    .messageRow:hover {
+        padding-left: 32px;
+    }
+}
+
+@media (max-width: 480px) {
+    .card {
+        border-radius: var(--radius-lg);
+    }
+
+    .cardTitle {
+        font-size: 1.4rem;
+    }
+}
