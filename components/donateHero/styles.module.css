@@ -1,0 +1,212 @@
+.hero {
+    position: relative;
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    color: #fff;
+    text-align: center;
+}
+
+.bg {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    transform: scale(1.06);
+    animation: slowZoom 14s ease forwards;
+}
+
+@keyframes slowZoom {
+    to {
+        transform: scale(1);
+    }
+}
+
+.overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom,
+            rgba(0, 0, 0, 0.55) 0%,
+            rgba(0, 0, 0, 0.78) 55%,
+            rgba(0, 0, 0, 0.96) 100%);
+    z-index: 1;
+}
+
+/* Rings */
+.ring1,
+.ring2 {
+    position: absolute;
+    border-radius: 50%;
+    border: 1px solid rgba(37, 150, 190, 0.12);
+    z-index: 1;
+    pointer-events: none;
+}
+
+.ring1 {
+    width: 560px;
+    height: 560px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: pulse 4s ease infinite;
+}
+
+.ring2 {
+    width: 820px;
+    height: 820px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: pulse 4s ease infinite;
+    animation-delay: 1s;
+    border-color: rgba(37, 150, 190, 0.06);
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        opacity: 0.8;
+    }
+
+    50% {
+        opacity: 0.2;
+    }
+}
+
+/* Content */
+.content {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+    padding: 120px var(--container-pad) 80px;
+    max-width: 720px;
+    animation: fadeUp 1s ease both;
+    animation-delay: 0.2s;
+}
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(24px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.eyebrow {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--color-brand-light);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.eyebrow::before,
+.eyebrow::after {
+    content: "";
+    width: 28px;
+    height: 1px;
+    background: var(--color-brand);
+}
+
+.title {
+    font-family: var(--font-display);
+    font-size: clamp(3rem, 8vw, 6.5rem);
+    font-weight: 700;
+    line-height: 1;
+    color: #fff;
+    letter-spacing: -0.02em;
+}
+
+.title em {
+    font-style: italic;
+    color: var(--color-brand-light);
+}
+
+.subtitle {
+    font-size: clamp(0.92rem, 1.6vw, 1.05rem);
+    color: rgba(255, 255, 255, 0.65);
+    line-height: 1.85;
+    font-weight: 300;
+    max-width: 540px;
+}
+
+/* Bible verse */
+.verse {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    padding: 20px 32px;
+    background: rgba(37, 150, 190, 0.1);
+    border: 1px solid rgba(37, 150, 190, 0.25);
+    border-radius: var(--radius-lg);
+    backdrop-filter: blur(10px);
+    max-width: 480px;
+}
+
+.quoteIcon {
+    font-family: var(--font-display);
+    font-size: 2.5rem;
+    color: var(--color-brand);
+    line-height: 0.5;
+    opacity: 0.6;
+    align-self: flex-start;
+}
+
+.verse p {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: clamp(0.9rem, 1.5vw, 1.05rem);
+    color: rgba(255, 255, 255, 0.85);
+    line-height: 1.7;
+    text-align: center;
+}
+
+.verse cite {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    color: var(--color-brand-light);
+    font-style: normal;
+    text-transform: uppercase;
+}
+
+.bottomFade {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 140px;
+    background: linear-gradient(to bottom, transparent, var(--color-bg));
+    z-index: 2;
+    pointer-events: none;
+}
+
+@media (max-width: 600px) {
+    .ring1 {
+        width: 320px;
+        height: 320px;
+    }
+
+    .ring2 {
+        width: 520px;
+        height: 520px;
+    }
+
+    .verse {
+        padding: 16px 20px;
+    }
+}

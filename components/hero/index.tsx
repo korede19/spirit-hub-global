@@ -129,7 +129,7 @@ export default function Hero() {
         {/* Stats strip */}
         <div className={styles.statsStrip}>
           <div className={styles.statItem}>
-            <span className={styles.statNumber}>15K+</span>
+            <span className={styles.statNumber}>100k+</span>
             <span className={styles.statLabel}>Global Members</span>
           </div>
           <div className={styles.statDivider} />
@@ -139,7 +139,7 @@ export default function Hero() {
           </div>
           <div className={styles.statDivider} />
           <div className={styles.statItem}>
-            <span className={styles.statNumber}>200+</span>
+            <span className={styles.statNumber}>800+</span>
             <span className={styles.statLabel}>Meetings Held</span>
           </div>
           <div className={styles.statDivider} />

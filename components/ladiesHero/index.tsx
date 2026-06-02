@@ -67,7 +67,7 @@ export default function LadiesHero() {
             {/* Inception badge */}
             <div className={styles.badge}>
                 <span className={styles.badgeTop}>Est.</span>
-                <span className={styles.badgeDate}>Sept 2020</span>
+                <span className={styles.badgeDate}>Sept 2018</span>
                 <span className={styles.badgeBottom}>50+ Sessions</span>
             </div>
         </section >
