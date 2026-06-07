@@ -11,6 +11,7 @@ export default function VisionHero() {
                         "url(/assets/image-2.jpeg)",
                 }}
             />
+            <div className={styles.bottomFade} aria-hidden="true" />
             <div className={styles.content}>
                 <span className={styles.eyebrow}>Our Mandate</span>
                 <h1 className={styles.title}>The Vision</h1>

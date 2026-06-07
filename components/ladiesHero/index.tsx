@@ -17,6 +17,7 @@ export default function LadiesHero() {
             <div className={styles.ring1} aria-hidden="true" />
             <div className={styles.ring2} aria-hidden="true" />
 
+            <div className={styles.bottomFade} aria-hidden="true" />
             <div className={styles.content}>
                 <span className={styles.eyebrow}>SpiritHubGlobal Presents</span>
                 <h1 className={styles.title}>

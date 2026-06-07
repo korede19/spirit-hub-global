@@ -228,6 +228,8 @@
   text-decoration: none;
   transition: all var(--transition);
   backdrop-filter: blur(8px);
+  cursor: pointer;
+  font-family: inherit;
 }
 
 .ctaSecondary:hover {

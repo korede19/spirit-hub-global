@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useCallback, ChangeEvent, FormEvent } from "react";
 import styles from "./styles.module.css";
+import { openWhatsApp } from "@/utils/constants";
 
 // ── Types ────────────────────────────────────────────────
 
@@ -146,7 +147,9 @@ export default function OngoingMeetings() {
     e.preventDefault();
     const errs = validate();
     if (Object.keys(errs).length) { setErrors(errs); return; }
-    /* TODO: wire up real submission (e.g. fetch/API call) */
+    openWhatsApp(
+      `[MEETING REGISTRATION]\nMeeting: ${activeMeeting?.title}\nName: ${form.name}\nEmail: ${form.email}\nCountry: ${form.country}`
+    );
     setSubmitted(true);
   };
 

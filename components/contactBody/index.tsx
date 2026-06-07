@@ -2,8 +2,17 @@
 
 import React, { useState } from "react";
 import styles from "./styles.module.css";
+import Modal, { type ModalType } from "@/components/prayerSection/Modal";
+import { openWhatsApp } from "@/utils/constants";
 
-const quickLinks = [
+const quickLinks: {
+    icon: React.ReactNode;
+    label: string;
+    description: string;
+    cta: string;
+    modal: ModalType;
+    accent: boolean;
+}[] = [
     {
         icon: (
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
@@ -16,7 +25,7 @@ const quickLinks = [
         label: "Prayer Request",
         description: "Let us stand with you in prayer. Submit your request and our intercessors will pray with you.",
         cta: "Submit Prayer Request",
-        href: "https://spirithubglobal.org/prayer-request/",
+        modal: "prayer",
         accent: true,
     },
     {
@@ -28,7 +37,7 @@ const quickLinks = [
         label: "New Converts",
         description: "Just given your life to Christ? Register and let us walk with you through your new journey.",
         cta: "Register as New Convert",
-        href: "https://spirithubglobal.org/new-converts-registration/",
+        modal: "salvation",
         accent: false,
     },
     {
@@ -40,7 +49,7 @@ const quickLinks = [
         label: "Share Testimony",
         description: "Your story of God's faithfulness can spark faith in others. Share what He has done for you.",
         cta: "Share Your Testimony",
-        href: "https://spirithubglobal.org/testimony-form/",
+        modal: "testimony",
         accent: false,
     },
 ];
@@ -123,6 +132,7 @@ export default function ContactBody() {
         message: "",
     });
     const [status, setStatus] = useState<Status>("idle");
+    const [activeModal, setActiveModal] = useState<ModalType | null>(null);
 
     const handleChange = (
         e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
@@ -133,23 +143,23 @@ export default function ContactBody() {
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         setStatus("sending");
-        // Simulate submission — wire up to your API / Formspree / EmailJS here
-        await new Promise((res) => setTimeout(res, 1800));
+        const waText = `[CONTACT MESSAGE]\nName: ${form.name}\nEmail: ${form.email}\nSubject: ${form.subject || "General Enquiry"}\nMessage: ${form.message}`;
+        await new Promise((res) => setTimeout(res, 600));
+        openWhatsApp(waText);
         setStatus("sent");
     };
 
     return (
+    <>
         <section className={styles.section}>
             <div className={styles.container}>
 
                 {/* ── Quick links row ── */}
                 <div className={styles.quickLinks}>
                     {quickLinks.map((link) => (
-                        <a
+                        <button
                             key={link.label}
-                            href={link.href}
-                            target="_blank"
-                            rel="noopener noreferrer"
+                            onClick={() => setActiveModal(link.modal)}
                             className={`${styles.quickCard} ${link.accent ? styles.quickCardAccent : ""}`}
                         >
                             <div className={styles.quickIcon}>{link.icon}</div>
@@ -163,7 +173,7 @@ export default function ContactBody() {
                                     <path d="M5 12h14M12 5l7 7-7 7" />
                                 </svg>
                             </span>
-                        </a>
+                        </button>
                     ))}
                 </div>
 
@@ -392,6 +402,11 @@ export default function ContactBody() {
                 </div >
 
             </div >
-        </section >
+        </section>
+
+        {activeModal && (
+            <Modal type={activeModal} onClose={() => setActiveModal(null)} />
+        )}
+    </>
     );
 }

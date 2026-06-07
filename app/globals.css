@@ -1,12 +1,14 @@
-@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600&family=Jost:wght@300;400;500;600;700&display=swap");
 
 :root {
   /* Brand Colors */
   --color-brand: #ee960d;
-  --color-brand-dark: #ecc474;
-  --color-brand-light: #ee960d;
-  --color-brand-muted: rgba(37, 150, 190, 0.12);
-  --color-brand-glow: rgba(37, 150, 190, 0.3);
+  --color-brand-dark: #c97e0a;
+  --color-brand-light: #f5a832;
+  --color-brand-muted: rgba(238, 150, 13, 0.1);
+  --color-brand-glow: rgba(238, 150, 13, 0.3);
+
+  /* Teal accent (UI backgrounds, borders, decorative glows) */
+  --color-teal-rgb: 37, 150, 190;
 
   /* Light Mode */
   --color-bg: #f9f9f7;
@@ -22,9 +24,9 @@
   --shadow-hover: 0 12px 40px rgba(0, 0, 0, 0.12);
   --shadow-brand: 0 8px 30px rgba(37, 150, 190, 0.25);
 
-  /* Typography */
-  --font-display: "Cormorant Garamond", Georgia, serif;
-  --font-body: "Jost", sans-serif;
+  /* Typography — overridden by next/font CSS variables set on <html> */
+  --font-display: Georgia, serif;
+  --font-body: system-ui, sans-serif;
 
   /* Spacing */
   --section-padding: 100px 0;

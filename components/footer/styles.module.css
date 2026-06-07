@@ -210,6 +210,11 @@
   transition: color var(--transition);
   display: inline-flex;
   align-items: center;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  font-family: inherit;
 }
 
 .footerLink::before {

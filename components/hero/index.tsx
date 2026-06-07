@@ -1,7 +1,8 @@
 "use client";
-import React, { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback } from "react";
 import Link from "next/link";
 import styles from "./styles.module.css";
+import Modal from "@/components/prayerSection/Modal";
 
 const slides = [
   {
@@ -29,6 +30,7 @@ const slides = [
 export default function Hero() {
   const [current, setCurrent] = useState(0);
   const [isTransitioning, setIsTransitioning] = useState(false);
+  const [showSalvation, setShowSalvation] = useState(false);
 
   const goTo = useCallback(
     (index: number) => {
@@ -50,6 +52,7 @@ export default function Hero() {
   }, [next]);
 
   return (
+    <>
     <section className={styles.hero} aria-label="Hero">
       {/* Background Slider */}
       <div className={styles.sliderTrack}>
@@ -110,13 +113,12 @@ export default function Hero() {
                 <path d="M5 12h14M12 5l7 7-7 7" />
               </svg>
             </Link>
-            <Link
-              href="https://spirithubglobal.org/new-converts-registration/"
+            <button
               className={styles.ctaSecondary}
-              target="_blank"
+              onClick={() => setShowSalvation(true)}
             >
               New to Faith?
-            </Link>
+            </button>
           </div>
 
           {/* Scroll indicator */}
@@ -167,5 +169,10 @@ export default function Hero() {
         <div className={styles.progressFill} />
       </div>
     </section>
+
+    {showSalvation && (
+      <Modal type="salvation" onClose={() => setShowSalvation(false)} />
+    )}
+  </>
   );
 }

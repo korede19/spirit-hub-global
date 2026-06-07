@@ -1,6 +1,9 @@
 "use client";
+import { useState } from "react";
 import Link from "next/link";
 import styles from "./styles.module.css";
+import Modal, { type ModalType } from "@/components/prayerSection/Modal";
+import { openWhatsApp } from "@/utils/constants";
 
 const currentYear = new Date().getFullYear();
 
@@ -16,19 +19,10 @@ const footerLinks = {
     { label: "Devotionals", href: "#" },
   ],
   Connect: [
-    {
-      label: "Prayer Request",
-      href: "https://spirithubglobal.org/prayer-request/",
-    },
-    {
-      label: "New Converts",
-      href: "https://spirithubglobal.org/new-converts-registration/",
-    },
-    {
-      label: "Share Testimony",
-      href: "https://spirithubglobal.org/testimony-form/",
-    },
-    { label: "Contact Us", href: "#" },
+    { label: "Prayer Request", href: "#", modal: "prayer" as ModalType },
+    { label: "New Converts", href: "#", modal: "salvation" as ModalType },
+    { label: "Share Testimony", href: "#", modal: "testimony" as ModalType },
+    { label: "Contact Us", href: "/contact", modal: null },
   ],
 };
 
@@ -85,7 +79,18 @@ const socials = [
 ];
 
 export default function Footer() {
+  const [activeModal, setActiveModal] = useState<ModalType | null>(null);
+
+  const handleNewsletter = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const email = (e.currentTarget.elements.namedItem("newsletter") as HTMLInputElement)?.value?.trim();
+    if (!email) return;
+    openWhatsApp(`[NEWSLETTER SUBSCRIPTION]\nEmail: ${email}`);
+    (e.currentTarget as HTMLFormElement).reset();
+  };
+
   return (
+    <>
     <footer className={styles.footer} id="footer" aria-label="Site footer">
       {/* Top wave / divider */}
       <div className={styles.waveDivider} aria-hidden="true">
@@ -106,13 +111,15 @@ export default function Footer() {
           </div>
           <form
             className={styles.emailForm}
-            onSubmit={(e) => e.preventDefault()}
+            onSubmit={handleNewsletter}
           >
             <input
               type="email"
+              name="newsletter"
               placeholder="Your email address"
               className={styles.emailInput}
               aria-label="Email address for newsletter"
+              required
             />
             <button type="submit" className={styles.emailBtn}>
               Subscribe
@@ -161,9 +168,18 @@ export default function Footer() {
               <ul className={styles.linkList}>
                 {links.map((link) => (
                   <li key={link.label}>
-                    <Link href={link.href} className={styles.footerLink}>
-                      {link.label}
-                    </Link>
+                    {"modal" in link && link.modal ? (
+                      <button
+                        className={styles.footerLink}
+                        onClick={() => setActiveModal((link as { modal: ModalType }).modal)}
+                      >
+                        {link.label}
+                      </button>
+                    ) : (
+                      <Link href={link.href} className={styles.footerLink}>
+                        {link.label}
+                      </Link>
+                    )}
                   </li>
                 ))}
               </ul>
@@ -194,5 +210,10 @@ export default function Footer() {
         </div>
       </div>
     </footer>
+
+    {activeModal && (
+      <Modal type={activeModal} onClose={() => setActiveModal(null)} />
+    )}
+    </>
   );
 }

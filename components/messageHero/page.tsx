@@ -17,6 +17,7 @@ export default function MessagesHero() {
                 }}
             />
 
+            <div className={styles.bottomFade} aria-hidden="true" />
             <div className={styles.content}>
                 <span className={styles.eyebrow}>Teaching Library</span>
                 <h1 className={styles.title}>Messages</h1>
