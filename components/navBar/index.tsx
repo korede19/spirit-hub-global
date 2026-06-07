@@ -64,7 +64,7 @@ export default function Navbar() {
           <div className={styles.actions}>
             <ThemeToggle />
             <Link
-              href="https://spirithubglobal.org/prayer-request/"
+              href="https://spirithubglobal.com/contact/"
               className={styles.ctaBtn}
               target="_blank"
             >
@@ -116,7 +116,7 @@ export default function Navbar() {
             </Link>
           ))}
           <Link
-            href="https://spirithubglobal.org/prayer-request/"
+            href="https://spirithubglobal.com/contact/"
             className={styles.mobileCta}
             onClick={handleNavClick}
             target="_blank"

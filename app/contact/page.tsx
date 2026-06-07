@@ -13,7 +13,7 @@ export const metadata: Metadata = {
         title: "Contact Us | SpiritHubGlobal",
         description:
             "Get in touch with SpiritHubGlobal. Submit a prayer request, share your testimony, or send us a message.",
-        url: "https://spirithubglobal.org/contact",
+        url: "https://spirithubglobal.com/contact",
     },
 };
 

@@ -13,7 +13,7 @@ export const metadata: Metadata = {
         title: "Messages | SpiritHubGlobal",
         description:
             "Explore our rich library of Spirit-filled teaching series — The Power Series, 40 Days Discipleship, GSP Series, The Prophetic Realm, and more.",
-        url: "https://spirithubglobal.org/messages",
+        url: "https://spirithubglobal.com/messages",
     },
 };
 

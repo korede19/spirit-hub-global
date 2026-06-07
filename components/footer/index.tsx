@@ -11,12 +11,12 @@ const footerLinks = {
   Ministry: [
     { label: "The Vision", href: "/the-vision" },
     { label: "Ladies Arise", href: "/ladies-arise" },
-    { label: "Partner With Us", href: "/Donations" },
+    { label: "Partner With Us", href: "/donations" },
   ],
   Resources: [
-    { label: "Books & Downloads", href: "#books" },
-    { label: "Past Meetings", href: "#previous-meetings" },
-    { label: "Devotionals", href: "#" },
+    { label: "Books & Downloads", href: "/#books" },
+    { label: "Past Meetings", href: "/#previous-meetings" },
+    { label: "Devotionals", href: "/#books" },
   ],
   Connect: [
     { label: "Prayer Request", href: "#", modal: "prayer" as ModalType },
@@ -91,129 +91,129 @@ export default function Footer() {
 
   return (
     <>
-    <footer className={styles.footer} id="footer" aria-label="Site footer">
-      {/* Top wave / divider */}
-      <div className={styles.waveDivider} aria-hidden="true">
-        <div className={styles.waveInner} />
-      </div>
-
-      {/* Newsletter / CTA banner */}
-      <div className={styles.ctaBanner}>
-        <div className={styles.ctaInner}>
-          <div className={styles.ctaText}>
-            <h3 className={styles.ctaHeading}>
-              Stay Connected to the Move of God
-            </h3>
-            <p className={styles.ctaSubtext}>
-              Get meeting updates, new resources, and devotionals delivered to
-              your inbox.
-            </p>
-          </div>
-          <form
-            className={styles.emailForm}
-            onSubmit={handleNewsletter}
-          >
-            <input
-              type="email"
-              name="newsletter"
-              placeholder="Your email address"
-              className={styles.emailInput}
-              aria-label="Email address for newsletter"
-              required
-            />
-            <button type="submit" className={styles.emailBtn}>
-              Subscribe
-            </button>
-          </form>
+      <footer className={styles.footer} id="footer" aria-label="Site footer">
+        {/* Top wave / divider */}
+        <div className={styles.waveDivider} aria-hidden="true">
+          <div className={styles.waveInner} />
         </div>
-      </div>
 
-      {/* Main footer body */}
-      <div className={styles.body}>
-        <div className={styles.container}>
-          {/* Brand col */}
-          <div className={styles.brandCol}>
-            <div className={styles.logoWrap}>
-              <span className={styles.logoMark}>✦</span>
-              <span className={styles.logoText}>
-                SpiritHub<em>Global</em>
-              </span>
+        {/* Newsletter / CTA banner */}
+        <div className={styles.ctaBanner}>
+          <div className={styles.ctaInner}>
+            <div className={styles.ctaText}>
+              <h3 className={styles.ctaHeading}>
+                Stay Connected to the Move of God
+              </h3>
+              <p className={styles.ctaSubtext}>
+                Get meeting updates, new resources, and devotionals delivered to
+                your inbox.
+              </p>
             </div>
-            <p className={styles.brandDesc}>
-              A global community of Spirit-filled believers pursuing God&apos;s
-              presence, power, and purpose. Together, we worship, pray, and
-              change the world.
-            </p>
-            {/* Socials */}
-            <div className={styles.socials}>
-              {socials.map((s) => (
-                <a
-                  key={s.label}
-                  href={s.href}
-                  className={styles.socialIcon}
-                  aria-label={s.label}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  {s.icon}
-                </a>
-              ))}
-            </div>
+            <form
+              className={styles.emailForm}
+              onSubmit={handleNewsletter}
+            >
+              <input
+                type="email"
+                name="newsletter"
+                placeholder="Your email address"
+                className={styles.emailInput}
+                aria-label="Email address for newsletter"
+                required
+              />
+              <button type="submit" className={styles.emailBtn}>
+                Subscribe
+              </button>
+            </form>
           </div>
+        </div>
 
-          {/* Link columns */}
-          {Object.entries(footerLinks).map(([group, links]) => (
-            <div key={group} className={styles.linkCol}>
-              <h4 className={styles.linkGroupTitle}>{group}</h4>
-              <ul className={styles.linkList}>
-                {links.map((link) => (
-                  <li key={link.label}>
-                    {"modal" in link && link.modal ? (
-                      <button
-                        className={styles.footerLink}
-                        onClick={() => setActiveModal((link as { modal: ModalType }).modal)}
-                      >
-                        {link.label}
-                      </button>
-                    ) : (
-                      <Link href={link.href} className={styles.footerLink}>
-                        {link.label}
-                      </Link>
-                    )}
-                  </li>
+        {/* Main footer body */}
+        <div className={styles.body}>
+          <div className={styles.container}>
+            {/* Brand col */}
+            <div className={styles.brandCol}>
+              <div className={styles.logoWrap}>
+                <span className={styles.logoMark}>✦</span>
+                <span className={styles.logoText}>
+                  SpiritHub<em>Global</em>
+                </span>
+              </div>
+              <p className={styles.brandDesc}>
+                A global community of Spirit-filled believers pursuing God&apos;s
+                presence, power, and purpose. Together, we worship, pray, and
+                change the world.
+              </p>
+              {/* Socials */}
+              <div className={styles.socials}>
+                {socials.map((s) => (
+                  <a
+                    key={s.label}
+                    href={s.href}
+                    className={styles.socialIcon}
+                    aria-label={s.label}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {s.icon}
+                  </a>
                 ))}
-              </ul>
+              </div>
             </div>
-          ))}
-        </div>
-      </div>
 
-      {/* Bottom bar */}
-      <div className={styles.bottomBar}>
-        <div className={styles.bottomInner}>
-          <p className={styles.copyright}>
-            © {currentYear} SpiritHubGlobal. All rights reserved.
-          </p>
-          <div className={styles.bottomLinks}>
-            <a href="#" className={styles.bottomLink}>
-              Privacy Policy
-            </a>
-            <span className={styles.bottomDot}>·</span>
-            <a href="#" className={styles.bottomLink}>
-              Terms of Use
-            </a>
+            {/* Link columns */}
+            {Object.entries(footerLinks).map(([group, links]) => (
+              <div key={group} className={styles.linkCol}>
+                <h4 className={styles.linkGroupTitle}>{group}</h4>
+                <ul className={styles.linkList}>
+                  {links.map((link) => (
+                    <li key={link.label}>
+                      {"modal" in link && link.modal ? (
+                        <button
+                          className={styles.footerLink}
+                          onClick={() => setActiveModal((link as { modal: ModalType }).modal)}
+                        >
+                          {link.label}
+                        </button>
+                      ) : (
+                        <Link href={link.href} className={styles.footerLink}>
+                          {link.label}
+                        </Link>
+                      )}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
           </div>
-          <p className={styles.madeWith}>
-            Made with <span style={{ color: "var(--color-brand)" }}>♥</span> for
-            the Kingdom
-          </p>
         </div>
-      </div>
-    </footer>
 
-    {activeModal && (
-      <Modal type={activeModal} onClose={() => setActiveModal(null)} />
-    )}
+        {/* Bottom bar */}
+        <div className={styles.bottomBar}>
+          <div className={styles.bottomInner}>
+            <p className={styles.copyright}>
+              © {currentYear} SpiritHubGlobal. All rights reserved.
+            </p>
+            <div className={styles.bottomLinks}>
+              <a href="#" className={styles.bottomLink}>
+                Privacy Policy
+              </a>
+              <span className={styles.bottomDot}>·</span>
+              <a href="#" className={styles.bottomLink}>
+                Terms of Use
+              </a>
+            </div>
+            <p className={styles.madeWith}>
+              Made with <span style={{ color: "var(--color-brand)" }}>♥</span> for
+              the Kingdom
+            </p>
+          </div>
+        </div>
+      </footer>
+
+      {activeModal && (
+        <Modal type={activeModal} onClose={() => setActiveModal(null)} />
+      )}
     </>
   );
 }

@@ -40,11 +40,11 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "SpiritHubGlobal" }],
   creator: "SpiritHubGlobal",
-  metadataBase: new URL("https://spirithubglobal.org"),
+  metadataBase: new URL("https://spirithubglobal.com/"),
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://spirithubglobal.org",
+    url: "https://spirithubglobal.com/",
     siteName: "SpiritHubGlobal",
     title: "SpiritHubGlobal — Where the Spirit Moves & Lives Are Transformed",
     description:
@@ -78,8 +78,8 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: "/favicon.ico",
-    shortcut: "/favicon-16x16.png",
-    apple: "/apple-touch-icon.png",
+    shortcut: "/favicon.ico",
+    apple: "/favicon.ico",
   },
   manifest: "/site.webmanifest",
 };

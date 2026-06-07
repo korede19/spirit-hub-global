@@ -160,7 +160,7 @@ export const items = [
     heading: "Let's stand with you in prayer",
     body: "You don't have to face life's challenges alone. Submit your prayer request and our community of intercessors will stand in agreement with you.",
     cta: "Submit Your Prayer Request",
-    href: "https://spirithubglobal.org/prayer-request/",
+    href: "https://spirithubglobal.com/contact/",
     accent: true,
   },
   {
@@ -181,7 +181,7 @@ export const items = [
     heading: "Have you given your life to Christ?",
     body: "The best decision you'll ever make. If you've recently given your life to Christ — or are thinking about it — we want to walk this journey with you.",
     cta: "Learn About Your New Life",
-    href: "https://spirithubglobal.org/new-converts-registration/",
+    href: "https://spirithubglobal.com/contact/",
     accent: false,
   },
   {
@@ -202,7 +202,7 @@ export const items = [
     heading: "Do you have a testimony?",
     body: "God's faithfulness in your life can spark faith in someone else's. Share what He has done for you — your testimony is a weapon and a witness.",
     cta: "Share Your Story",
-    href: "https://spirithubglobal.org/testimony-form/",
+    href: "https://spirithubglobal.com/contact/",
     accent: false,
   },
 ];

@@ -15,7 +15,7 @@ export const metadata: Metadata = {
         title: "Ladies Arise | SpiritHubGlobal",
         description:
             "Empowering and awakening women to grasp their identity, inner potential, and fullness in Christ Jesus.",
-        url: "https://spirithubglobal.org/ladies-arise",
+        url: "https://spirithubglobal.com/ladies-arise",
     },
 };
 

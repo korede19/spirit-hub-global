@@ -15,7 +15,7 @@ export const metadata: Metadata = {
         title: "The Vision | SpiritHubGlobal",
         description:
             "Spirit Hub Global Ministries is a non-denominational ministry with an Apostolic and Prophetic mandate to guide people into the core of God's life and ways.",
-        url: "https://spirithubglobal.org/the-vision",
+        url: "https://spirithubglobal.com/the-vision",
     },
 };
 

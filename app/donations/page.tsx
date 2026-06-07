@@ -12,7 +12,7 @@ export const metadata: Metadata = {
         title: "Donate | SpiritHubGlobal",
         description:
             "Partner with SpiritHubGlobal through your donations and seeds. Every giving advances the Kingdom of God across nations.",
-        url: "https://spirithubglobal.org/donate",
+        url: "https://spirithubglobal.com/donate",
     },
 };
 
