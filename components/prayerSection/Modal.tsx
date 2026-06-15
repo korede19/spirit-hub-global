@@ -5,11 +5,12 @@ import {
   submitPrayerRequest,
   submitNewConvert,
   submitTestimony,
+  submitKingdomBusiness,
 } from "@/app/actions";
 import { openWhatsApp } from "@/utils/constants";
 import styles from "./styles.module.css";
 
-export type ModalType = "prayer" | "salvation" | "testimony";
+export type ModalType = "prayer" | "salvation" | "testimony" | "business";
 
 const config: Record<ModalType, { title: string; subtitle: string; icon: React.ReactNode }> = {
   prayer: {
@@ -36,6 +37,16 @@ const config: Record<ModalType, { title: string; subtitle: string; icon: React.R
     icon: (
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
         <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+      </svg>
+    ),
+  },
+  business: {
+    title: "Kingdom Businessmen Registration",
+    subtitle: "Connect your business with the Kingdom community.",
+    icon: (
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
+        <rect x="2" y="7" width="20" height="14" rx="2" ry="2" />
+        <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
       </svg>
     ),
   },
@@ -182,6 +193,43 @@ function TestimonyForm({ onClose }: { onClose: () => void }) {
   );
 }
 
+function BusinessForm({ onClose }: { onClose: () => void }) {
+  const [state, action, pending] = useActionState(submitKingdomBusiness, null);
+
+  useEffect(() => {
+    if (state?.success && state.waText) openWhatsApp(state.waText);
+  }, [state?.success]);
+
+  if (state?.success) return <SuccessView message={state.message} onClose={onClose} />;
+
+  return (
+    <form action={action}>
+      <FormField label="Your Name" name="name" placeholder="Enter your full name" autoFocus />
+      <FormField label="Name of Business" name="business" placeholder="e.g. Kingdom Crafts Ltd" />
+      <FormField label="Location" name="location" placeholder="City, Country" />
+      <FormField label="Contact Details" name="contact" type="tel" placeholder="Phone / WhatsApp number" />
+      <FormField label="Email Address" name="email" type="email" placeholder="you@example.com" />
+      <div className={styles.formGroup}>
+        <label className={styles.label} htmlFor="about">About Business</label>
+        <textarea
+          id="about"
+          name="about"
+          required
+          placeholder="Briefly tell us about your business and what you offer..."
+          className={styles.textarea}
+        />
+      </div>
+      {state?.message && !state.success && (
+        <p className={styles.errorMsg}>{state.message}</p>
+      )}
+      <button type="submit" disabled={pending} className={styles.submitBtn}>
+        {pending && <span className={styles.spinner} />}
+        {pending ? "Submitting…" : "Register Business"}
+      </button>
+    </form>
+  );
+}
+
 export default function Modal({ type, onClose }: ModalProps) {
   const { title, subtitle, icon } = config[type];
 
@@ -234,6 +282,7 @@ export default function Modal({ type, onClose }: ModalProps) {
         {type === "prayer" && <PrayerForm onClose={onClose} />}
         {type === "salvation" && <SalvationForm onClose={onClose} />}
         {type === "testimony" && <TestimonyForm onClose={onClose} />}
+        {type === "business" && <BusinessForm onClose={onClose} />}
       </div>
     </div>
   );

@@ -22,6 +22,7 @@ const footerLinks = {
     { label: "Prayer Request", href: "#", modal: "prayer" as ModalType },
     { label: "New Converts", href: "#", modal: "salvation" as ModalType },
     { label: "Share Testimony", href: "#", modal: "testimony" as ModalType },
+    { label: "Kingdom Businessmen", href: "#", modal: "business" as ModalType },
     { label: "Contact Us", href: "/contact", modal: null },
   ],
 };

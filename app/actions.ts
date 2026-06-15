@@ -62,3 +62,27 @@ export async function submitTestimony(
     waText,
   };
 }
+
+export async function submitKingdomBusiness(
+  _prev: unknown,
+  formData: FormData
+) {
+  const name = formData.get("name") as string;
+  const business = formData.get("business") as string;
+  const location = formData.get("location") as string;
+  const contact = formData.get("contact") as string;
+  const email = formData.get("email") as string;
+  const about = formData.get("about") as string;
+
+  if (!name?.trim() || !business?.trim() || !location?.trim() || !contact?.trim() || !email?.trim() || !about?.trim()) {
+    return { success: false, message: "Please fill in all fields.", waText: "" };
+  }
+
+  const waText = `[KINGDOM BUSINESSMEN]\nName: ${name}\nBusiness: ${business}\nLocation: ${location}\nContact: ${contact}\nEmail: ${email}\nAbout: ${about}`;
+
+  return {
+    success: true,
+    message: "Thank you for registering! Our team will review your business and reach out soon.",
+    waText,
+  };
+}
